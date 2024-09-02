@@ -1,0 +1,21 @@
+from fastapi import Depends, FastAPI
+import uvicorn
+
+from app.routers import courses
+
+app = FastAPI()
+
+
+app.include_router(courses.router)
+
+
+@app.get("/")
+async def root():
+    return {"message": "Hello Bigger Applications!"}
+
+
+if __name__ == "__main__":
+    uvicorn.run(app, host="0.0.0.0", port=8000)
+
+
+
