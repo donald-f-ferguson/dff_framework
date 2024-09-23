@@ -20,15 +20,15 @@ class CourseSection(BaseModel):
     class Config:
         json_schema_extra = {
             "example": {
-                "course_id": 123,
-                "course_name": "Introduction to Python",
-                "uuid": "a1b2c3d4-e5f6-7g8h-9i0j-k1l2m3n4o5p6",
-                "created_at": "2023-09-02T12:34:56Z",
-                "course_code": "PY101",
-                "sis_course_id": "SIS001",
-                "course_no": "101",
-                "section": "A",
+                "course_id": 204283,
+                "course_name": "COMSW4153_001_2024_3 - Cloud Computing",
+                "uuid": "3jHCxUV0ck9Z8TF1sZeI8WTx47olDGkX1YPL3USM",
+                "created_at": "2024-04-05T00:58:50Z",
+                "course_code": "COMSW4153_001_2024_3 - Cloud Computing",
+                "sis_course_id": "COMSW4153_001_2024_3",
+                "course_no": "COMSW4153",
+                "section": "001",
                 "course_year": "2024",
-                "semester": "Fall"
+                "semester": "3"
             }
         }

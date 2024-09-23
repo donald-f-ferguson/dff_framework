@@ -3,7 +3,7 @@ from abc import ABC, abstractmethod, abstractclassmethod
 # TODO -- Add support for standard exceptions.
 
 
-class DataDataService(ABC):
+class BaseDataService(ABC):
     """
     Abstract base class for data service that defines the interface of concrete
     data service classes. This approach allows writing application logic that is

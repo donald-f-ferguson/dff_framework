@@ -1,4 +1,4 @@
-from framework.services.data_access.MySQLRDBDataService import MySQLRDBDataService
+from dff_framework.framework.services.data_access.MySQLRDBDataService import MySQLRDBDataService
 import json
 
 
