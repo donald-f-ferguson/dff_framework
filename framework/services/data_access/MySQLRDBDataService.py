@@ -1,5 +1,8 @@
+import os
+
 import pymysql
 from .BaseDataService import BaseDataService
+from dff_framework.framework.services.config import Config
 
 
 class MySQLRDBDataService(BaseDataService):
@@ -9,10 +12,10 @@ class MySQLRDBDataService(BaseDataService):
     can subclass, reuse methods and extend.
     """
 
-    def __init__(self, context):
-        super().__init__(context)
-        if context is None:
-            self.context = dict()
+    def __init__(self, config: Config):
+        super().__init__(config)
+        if config is None:
+            self.config = config
 
     def _get_connection(self, autocommit: bool = True):
         """
@@ -23,11 +26,17 @@ class MySQLRDBDataService(BaseDataService):
         :param autocommit: If True, set autocommit to be true for the connection.
         :return: A connection with DictCursor for the cursor and query.
         """
+        db_host = self.config.get_config("DB_HOST")
+        db_user = self.config.get_config("DB_USER")
+        db_port = self.config.get_config("DB_PORT")
+        db_port = int(db_port)
+        db_pw = self.config.get_config("DB_PW")
+
         connection = pymysql.connect(
-            host=self.context.get("host", "localhost"),
-            port=self.context.get("port", 3306),
-            user=self.context.get("user", "root"),
-            password=self.context.get("password", "dbuserdbuser"),
+            host=db_host,
+            port=db_port,
+            user=db_user,
+            password=db_pw,
             cursorclass=pymysql.cursors.DictCursor,
             autocommit=autocommit
         )
